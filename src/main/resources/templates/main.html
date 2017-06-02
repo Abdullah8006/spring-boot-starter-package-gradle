@@ -17,22 +17,20 @@
 <script src="js/config.js"></script>
 <script src="js/skel.min.js"></script>
 <script src="js/skel-panels.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+
 <!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 <!--[if lte IE 7]><link rel="stylesheet" href="css/ie7.css" /><![endif]-->
 </head>
 <body class="homepage">
-	<!-- Header Wrapper -->
-	<div id="header-wrapper">
-	    <h1 th:if="${util != null and util.isTrue() == true}">
-	    The name is abdullah
-	    </h1>
-		<div class="container">
-			<div class="row">
-				<div class="12u">
-					Sample Thymleaf, Spring boot app with Gradle.
- 				</div>
-			</div>
-		</div>
+	<my-component>This is sick</my-component>
+	<div id="app">
+		<p v-bind:title="title" v-for="name in names">{{ name }}</p>
+		<input v-on:click="alertMessage" type="button" name="Alert" value="Alrrt"></input>
+		<p>{{swirlMessage}}</p>
 	</div>
+	
 </body>
+<script th:src="@{js/vuejs/component/app.js}"></script>
+<script th:src="@{js/vuejs/component/baseComponent.js}"></script>
 </html>
